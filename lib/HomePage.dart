@@ -120,20 +120,22 @@ class _HomePageState extends State<HomePage> {
                               children: [
                                 ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                    minimumSize: Size(12, 20)
+                                    minimumSize: Size(10, 18),
+                                    backgroundColor: Color(0xFFFFFFFF)
                                   ),
                                   onPressed: (){},
                                   child: Row(
                                     children: [
                                       Icon(Icons.star, color: Colors.yellow, size: 18),
-                                      Text('4.5', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500))
+                                      Text('4.5', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Colors.black))
                                     ],
                                   ),
                                 ),
                                 SizedBox(width: 30),
                                 ElevatedButton(
                                     style: ElevatedButton.styleFrom(
-                                      minimumSize: Size(10, 18)
+                                      minimumSize: Size(10, 18),
+                                      backgroundColor: Color(0xFFFFFFFF)
                                     ),
                                     onPressed: (){},
                                     child: Text('Shop Now', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w300, color: Colors.black)),

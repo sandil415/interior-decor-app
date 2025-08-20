@@ -32,9 +32,9 @@ class ItemOverview extends StatelessWidget {
                       shape: BoxShape.circle
                     ),
                     child: 
-                      Icon(Icons.favorite, color: Color(0xFFFFFFFF)),
+                      Icon(Icons.favorite, color: Color(0xFFFFFFFF), size: 18),
                   ),
-                  SizedBox(width: 4),
+                  SizedBox(width: 14),
                   Container(
                     padding: EdgeInsets.all(2),
                     decoration: BoxDecoration(
@@ -42,7 +42,7 @@ class ItemOverview extends StatelessWidget {
                       shape: BoxShape.circle
                     ),
                     child: 
-                      Icon(Icons.add, color: Color(0xFFFFFFFF)),
+                      Icon(Icons.add, color: Color(0xFFFFFFFF), size: 18),
                   )
                 ]
               )
