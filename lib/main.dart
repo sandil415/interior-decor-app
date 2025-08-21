@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'Cart.dart';
 import 'EmptyCart.dart';
 import 'ItemClicked.dart';
 import 'OnBoarding.dart';
@@ -38,7 +39,8 @@ class MyApp extends StatelessWidget {
       // home: const ItemMenu(),
       // home: const LogIn(),
       // home: const SignUp(),
-      home: const ItemClicked(itemName: 'DS', itemCost: '120',),
+      // home: const ItemClicked(itemName: 'DS', itemCost: 120,),
+      home: const Cart(objectName: "Demo", objectCost: 120,imgPath: 'lib/assets/images/GreenBed.png',),
       debugShowCheckedModeBanner: false,
     );
   }

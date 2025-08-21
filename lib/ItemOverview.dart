@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Cart.dart';
 import 'ItemClicked.dart';
 
 class ItemOverview extends StatelessWidget {
@@ -6,7 +7,7 @@ class ItemOverview extends StatelessWidget {
   final String name;
   // final String ? detail;
   final bool clicked;
-  final String cost;
+  final int cost;
 
   const ItemOverview({super.key, required this.path, required this.name, required this.clicked, required this.cost});
 
@@ -58,7 +59,15 @@ class ItemOverview extends StatelessWidget {
                         shape: BoxShape.circle
                       ),
                       child: 
-                        Icon(Icons.add, color: Color(0xFFFFFFFF), size: 18),
+                        GestureDetector(
+                          child: Icon(Icons.add, color: Color(0xFFFFFFFF), size: 18),
+                          onTap: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Cart(objectName: name, objectCost: cost, imgPath: path))
+                            );
+                          },
+                          ),
                     ),
                   )
                 ]

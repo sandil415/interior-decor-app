@@ -6,7 +6,7 @@ import 'TopNavigate.dart';
 class ItemClicked extends StatelessWidget {
   final String itemName;
   // final String imgPath;
-  final String itemCost;
+  final int itemCost;
   const ItemClicked({super.key, required this.itemName, required this.itemCost});
 
   @override
