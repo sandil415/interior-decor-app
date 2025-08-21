@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'Cart.dart';
 import 'ItemClicked.dart';
+import 'Wishlist.dart';
 
 class ItemOverview extends StatelessWidget {
   final String path;
@@ -17,9 +18,14 @@ class ItemOverview extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(
-            path,
-            ),
+          GestureDetector(
+            onTap: (){
+              ItemClicked(itemName: name, itemCost: cost);
+            },
+            child: Image.asset(
+              path,
+              ),
+          ),
           SizedBox(height: clicked ? 16: 10),
           Text(name, style: TextStyle(fontSize: clicked ? 20 : 16, fontWeight: FontWeight.w900)),
           Text(clicked ? 'Lorem ipsum dolor sit amet consectetur. Odio neque commodo id\naenean quis magna. Auctor neque id pharetra gravida. Libero \nscelerisque ut mauris volutpat risus nec facilisi adipiscing. \nAugue mollis amet.' : 'Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit', style: TextStyle(fontSize: clicked ? 13: 12, fontWeight: clicked ? FontWeight.w500: FontWeight.w100)),
@@ -44,11 +50,10 @@ class ItemOverview extends StatelessWidget {
                   SizedBox(width: 14),
                   GestureDetector(
                     onTap: (){
-
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => ItemClicked(itemName: this.name, itemCost: cost)
+                              builder: (context) => Wishlist(itemName: this.name, imgPath: path)
                             )
                           );
                         },
