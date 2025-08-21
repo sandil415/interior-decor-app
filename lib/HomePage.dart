@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'ItemMenu.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'ItemOverview.dart';
 
@@ -26,6 +27,14 @@ class _HomePageState extends State<HomePage> {
     Image.asset('lib/assets/images/Kitchen.png', height: 65, width: 65),
     Image.asset('lib/assets/images/Office.png', height: 65, width: 65),
   ];
+
+  List <String> _carouselLabel = [
+    'Living Room',
+    'Bedroom',
+    'Dining Room',
+    'Kitchen',
+    'Office'
+  ]; 
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +100,16 @@ class _HomePageState extends State<HomePage> {
                     itemBuilder: (context, index){
                       return Padding(
                         padding: const EdgeInsets.only(right: 16.0),
-                        child: _carousel[index],
+                        child: GestureDetector(
+                          onTap: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ItemMenu(name: _carouselLabel[index])
+                              )
+                            );
+                          },
+                          child: _carousel[index]),
                       );
                     },
                   ),
@@ -163,7 +181,7 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   children: [
                     ItemOverview(path: 'lib/assets/images/AluminiumChair.png',name: 'Aluminium Chair', detail: 'Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit', cost: '120',),
-                    SizedBox(width: 30),
+                    Expanded(child: Text('')),
                     ItemOverview(path: 'lib/assets/images/StylishChair.png', name: 'Stylish Chair', detail: 'Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit', cost: '120')
                   ],
                 )

@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 class ItemOverview extends StatelessWidget {
   final String path;
   final String name;
-  final String detail;
+  final String ? detail;
   final String cost;
-  const ItemOverview({super.key, required this.path, required this.name, required this.detail, required this.cost});
+  const ItemOverview({super.key, required this.path, required this.name, this.detail, required this.cost});
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +16,8 @@ class ItemOverview extends StatelessWidget {
           Image.asset(path),
           SizedBox(height: 10),
           Text(name, style: TextStyle(fontWeight: FontWeight.w900)),
-          Text(detail, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w100)),
-          Text('_________________________', style: TextStyle(color: Color(0xFFF4B5A4))),
+          Text(detail ?? 'Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w100)),
+          Text('________________________', style: TextStyle(color: Color(0xFFF4B5A4))),
           SizedBox(height:5),
           Row(
             children: [

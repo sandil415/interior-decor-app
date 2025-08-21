@@ -5,6 +5,7 @@ import 'Login.dart';
 import 'SignUp.dart';
 import 'HomePage.dart';
 import 'Search.dart';
+import 'ItemMenu.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,8 +30,9 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
       ),
       // home: const OnBoarding(),
-      // home: const HomePage(),
-      home: const Search(),
+      home: const HomePage(),
+      // home: const Search(),
+      // home: const ItemMenu(),
       // home: const LogIn(),
       // home: const SignUp(),
       debugShowCheckedModeBanner: false,
