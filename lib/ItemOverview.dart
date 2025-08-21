@@ -7,6 +7,7 @@ class ItemOverview extends StatelessWidget {
   // final String ? detail;
   final bool clicked;
   final String cost;
+
   const ItemOverview({super.key, required this.path, required this.name, required this.clicked, required this.cost});
 
   @override
@@ -17,14 +18,13 @@ class ItemOverview extends StatelessWidget {
         children: [
           Image.asset(
             path,
-            height: clicked? 350: 135,
-            width: clicked? 400: 150),
-          SizedBox(height: 10),
+            ),
+          SizedBox(height: clicked ? 16: 10),
           Text(name, style: TextStyle(fontSize: clicked ? 20 : 16, fontWeight: FontWeight.w900)),
-          Text(clicked ? 'Lorem ipsum dolor sit amet consectetur. Odio neque commodo id\naenean quis magna. Auctor neque id pharetra gravida. Libero \nscelerisque ut mauris volutpat risus nec facilisi adipiscing. \nAugue mollis amet.' : 'Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit', style: TextStyle(fontSize: clicked ? 16: 12, fontWeight: clicked ? FontWeight.w500: FontWeight.w100)),
+          Text(clicked ? 'Lorem ipsum dolor sit amet consectetur. Odio neque commodo id\naenean quis magna. Auctor neque id pharetra gravida. Libero \nscelerisque ut mauris volutpat risus nec facilisi adipiscing. \nAugue mollis amet.' : 'Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit', style: TextStyle(fontSize: clicked ? 13: 12, fontWeight: clicked ? FontWeight.w500: FontWeight.w100)),
           // Text(detail ?? 'Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w100)),
-          Text(clicked? '________________________________________________': '________________________', style: TextStyle(color: Color(0xFFF4B5A4))),
-          SizedBox(height:5),
+          Text(clicked? '____________________________________________________': '________________________', style: TextStyle(color: Color(0xFFF4B5A4))),
+          SizedBox(height:clicked ? 10: 5),
           Row(
             children: [
               Text('\$$cost.00', style: TextStyle(fontSize: clicked ? 16: 12,fontWeight: FontWeight.w500, color: Color(0xFFF4B5A4))),
@@ -43,6 +43,7 @@ class ItemOverview extends StatelessWidget {
                   SizedBox(width: 14),
                   GestureDetector(
                     onTap: (){
+
                           Navigator.push(
                             context,
                             MaterialPageRoute(

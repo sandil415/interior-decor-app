@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'ItemOverview.dart';
 import 'TopNavigate.dart';
 
@@ -43,7 +44,39 @@ class ItemClicked extends StatelessWidget {
                 ]
               ),
               SizedBox(height: 30),
-              ItemOverview(name: itemName, path: 'lib/assets/images/ItemEnlarged.png', clicked: true, cost: itemCost)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(''),
+                  ItemOverview(name: itemName, path: 'lib/assets/images/ItemEnlarged.png', clicked: true, cost: itemCost),
+                  Text('')
+                ],
+              ),
+              SizedBox(height: 6,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('User reviews'),
+                  RatingBar.builder(
+                  minRating: 1,
+                  itemSize: 18,
+                  itemPadding: EdgeInsets.zero,
+                  itemBuilder: (context, _) => Icon(Icons.star, color: Color(0xFFF4B5A4)),
+                  onRatingUpdate: (rating){},
+                  updateOnDrag: true,
+                  )
+                ],
+              ),
+              SizedBox(height: 30),
+              ElevatedButton(
+                child: Text('Add To Cart', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Color(0xFFCC7861))),
+                onPressed: (){},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFFF4B5A4),
+                  elevation: 0,
+                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 18)
+                )
+              )
             ],
           ),
         ),

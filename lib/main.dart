@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'EmptyCart.dart';
+import 'ItemClicked.dart';
 import 'OnBoarding.dart';
 import 'Login.dart';
 import 'SignUp.dart';
@@ -30,11 +32,13 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
       ),
       // home: const OnBoarding(),
-      home: const HomePage(),
+      // home: const EmptyCart(),
+      // home: const HomePage(),
       // home: const Search(),
       // home: const ItemMenu(),
       // home: const LogIn(),
       // home: const SignUp(),
+      home: const ItemClicked(itemName: 'DS', itemCost: '120',),
       debugShowCheckedModeBanner: false,
     );
   }

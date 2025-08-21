@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'HomePage.dart';
 import 'InputField.dart';
 import 'SignUp.dart';
 // import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -50,7 +51,12 @@ class LogIn extends StatelessWidget {
                   SizedBox(height: 54),
                   Center(
                     child: ElevatedButton(
-                      onPressed: (){},
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomePage())
+                        );
+                      },
                       child: Text('Log In', style: TextStyle(fontSize: 20, color: Color(0xFFCC7861), fontWeight: FontWeight.bold)),
                       style: ElevatedButton.styleFrom(
                         minimumSize: Size(180, 50),
@@ -76,7 +82,8 @@ class LogIn extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         TextButton(
-                          onPressed: (){},
+                          onPressed: (){
+                          },
                           child: Icon(Icons.facebook)
                         ), 
                         SizedBox(width: 10),
