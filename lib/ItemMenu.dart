@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'TopNavigate.dart';
 import 'ItemOverview.dart';
 
 class ItemMenu extends StatelessWidget {
@@ -44,25 +44,25 @@ class ItemMenu extends StatelessWidget {
               SizedBox(height: 30),
               Row(
                 children: [
-                ItemOverview(path: 'lib/assets/images/SingleBed.png', name: 'Single Bed', cost: '294'),
+                ItemOverview(path: 'lib/assets/images/SingleBed.png', name: 'Single Bed', clicked: false, cost: '294'),
                 Expanded(child: Text('')),
-                ItemOverview(path: 'lib/assets/images/GreenBed.png', name: 'Green Bed', cost: '285')
+                ItemOverview(path: 'lib/assets/images/GreenBed.png', name: 'Green Bed', clicked: false, cost: '285')
                 ]
               ),
               SizedBox(height: 20),
               Row(
                 children: [
-                ItemOverview(path: 'lib/assets/images/BrownBed.png', name: 'Brown Bed', cost: '280'),
+                ItemOverview(path: 'lib/assets/images/BrownBed.png', name: 'Brown Bed', clicked: false,cost: '280'),
                 Expanded(child: Text('')),
-                ItemOverview(path: 'lib/assets/images/KingBed.png', name: 'KingBed', cost: '405')
+                ItemOverview(path: 'lib/assets/images/KingBed.png', name: 'KingBed', clicked: false,cost: '405')
                 ]
               ),
               SizedBox(height: 20),
               Row(
                 children: [
-                ItemOverview(path: 'lib/assets/images/StylishBed.png', name: 'Stylish Bed', cost: '294'),
+                ItemOverview(path: 'lib/assets/images/StylishBed.png', name: 'Stylish Bed', clicked: false,cost: '294'),
                 Expanded(child: Text('')),
-                ItemOverview(path: 'lib/assets/images/FullBed.png', name: 'Full Bed', cost: '257')
+                ItemOverview(path: 'lib/assets/images/FullBed.png', name: 'Full Bed', clicked: false,cost: '257')
                 ]
               ),
               SizedBox(height: 20)
@@ -74,19 +74,3 @@ class ItemMenu extends StatelessWidget {
   }
 }
 
-class TopNavigate extends StatelessWidget {
-  final String navigateTo;
-  const TopNavigate({super.key, required this.navigateTo});
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: (){},
-      child: Text(navigateTo, style: TextStyle(color: Color(0xFFDCBEB6), fontSize: 14)),
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Color(0xFFFFFFFF),
-        elevation: 0
-      )
-    );
-  }
-}

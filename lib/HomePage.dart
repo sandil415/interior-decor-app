@@ -180,9 +180,9 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(height: 10),
                 Row(
                   children: [
-                    ItemOverview(path: 'lib/assets/images/AluminiumChair.png',name: 'Aluminium Chair', detail: 'Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit', cost: '120',),
+                    ItemOverview(path: 'lib/assets/images/AluminiumChair.png',name: 'Aluminium Chair', clicked: false, cost: '120',),
                     Expanded(child: Text('')),
-                    ItemOverview(path: 'lib/assets/images/StylishChair.png', name: 'Stylish Chair', detail: 'Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit', cost: '120')
+                    ItemOverview(path: 'lib/assets/images/StylishChair.png', name: 'Stylish Chair', clicked: false, cost: '120')
                   ],
                 )
               ]
