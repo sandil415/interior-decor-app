@@ -5,8 +5,7 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
+    return Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -83,7 +82,6 @@ class Profile extends StatelessWidget {
             Options(label: 'Logout', icon: Icons.logout)
           ]
         ),
-      )
     );
   }
 }

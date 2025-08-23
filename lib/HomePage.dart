@@ -38,8 +38,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
+    return Padding(
           padding: const EdgeInsets.all(16),
           child: SingleChildScrollView(
             child: Column(
@@ -188,7 +187,6 @@ class _HomePageState extends State<HomePage> {
               ]
             ),
           )
-        ),
     );
   }
 }

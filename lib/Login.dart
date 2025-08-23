@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'BottomNavBar.dart';
 import 'HomePage.dart';
 import 'InputField.dart';
 import 'SignUp.dart';
@@ -54,7 +55,7 @@ class LogIn extends StatelessWidget {
                       onPressed: (){
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => HomePage())
+                          MaterialPageRoute(builder: (context) => BottomNavBar())
                         );
                       },
                       child: Text('Log In', style: TextStyle(fontSize: 20, color: Color(0xFFCC7861), fontWeight: FontWeight.bold)),

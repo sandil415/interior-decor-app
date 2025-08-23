@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class Cart extends StatefulWidget {
-  final String objectName;
-  final String imgPath;
-  final int objectCost;
+  final String? objectName;
+  final String? imgPath;
+  final int? objectCost;
 
-  const Cart({super.key, required this.objectName, required this.objectCost, required this.imgPath});
+  const Cart({super.key, this.objectName, this.objectCost, this.imgPath});
 
   @override
   State<Cart> createState() => _CartState();
@@ -19,14 +19,13 @@ class _CartState extends State<Cart> {
   @override
   void initState() {
     super.initState();
-    value = widget.objectCost; 
+    value = widget.objectCost ?? 0; 
     total = value + 5;
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
+    return Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -53,8 +52,8 @@ class _CartState extends State<Cart> {
                 borderRadius: BorderRadius.circular(16)
               ),
               child: ListTile(
-                leading: Image.asset(widget.imgPath), 
-                title: Text(widget.objectName, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFFCC7861)),), 
+                leading: Image.asset(widget.imgPath ?? 'lib/assets/images/GreenBed.png'), 
+                title: Text(widget.objectName ?? 'Green Bed', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFFCC7861)),), 
                 subtitle: Text('\$${widget.objectCost}'), 
                 trailing: Container(
                   width: 80,
@@ -66,7 +65,7 @@ class _CartState extends State<Cart> {
                           setState(() {
                             if(count > 0){
                               count--;
-                              value = count * widget.objectCost;
+                              value = count * (widget.objectCost??0);
                               total = value + 5;
                             }
                           });
@@ -93,7 +92,7 @@ class _CartState extends State<Cart> {
                         onTap: (){
                           setState(() {
                             count++;         
-                            value = count * widget.objectCost;    
+                            value = count * (widget.objectCost ?? 0);    
                             total = value + 5;      
                           });
                         },
@@ -156,7 +155,7 @@ class _CartState extends State<Cart> {
             )
           ]
         ),
-      )
+      
     );
   }
 }

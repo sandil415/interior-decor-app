@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
 class Wishlist extends StatelessWidget {
-  final String itemName;
-  final String imgPath;
-  const Wishlist({super.key, required this.itemName, required this.imgPath});
+  final String? itemName;
+  final String? imgPath;
+  const Wishlist({super.key, this.itemName, this.imgPath});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
+    return Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -35,14 +34,13 @@ class Wishlist extends StatelessWidget {
                 color: Color(0xFFFAF0E6),
                 borderRadius: BorderRadius.circular(16)
               ),
-              child: Image.asset(imgPath)
+              child: Image.asset(imgPath ?? 'lib/assets/images/GreenBed.png')
               ), 
-                title: Text(itemName, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFFCC7861)),), 
+                title: Text(itemName ?? 'Green Bed', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFFCC7861)),), 
                 subtitle: Text('In a laoreet purus. Integer turpis\nquam, laoreet id orci nec, ultrices\nlacinia nunc. Aliquam erat vo'), 
                 ),
             ]
         ),
-      )
     );
   }
 }
