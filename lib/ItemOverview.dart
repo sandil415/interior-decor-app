@@ -19,68 +19,82 @@ class ItemOverview extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           GestureDetector(
-            onTap: (){
-              ItemClicked(itemName: name, itemCost: cost);
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ItemClicked(itemName: name, itemCost: cost),
+                ),
+              );
             },
-            child: Image.asset(
-              path,
-              ),
+            child: Image.asset(path),
           ),
-          SizedBox(height: clicked ? 16: 10),
+          SizedBox(height: clicked ? 16 : 10),
           Text(name, style: TextStyle(fontSize: clicked ? 20 : 16, fontWeight: FontWeight.w900)),
-          Text(clicked ? 'Lorem ipsum dolor sit amet consectetur. Odio neque commodo id\naenean quis magna. Auctor neque id pharetra gravida. Libero \nscelerisque ut mauris volutpat risus nec facilisi adipiscing. \nAugue mollis amet.' : 'Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit', style: TextStyle(fontSize: clicked ? 13: 12, fontWeight: clicked ? FontWeight.w500: FontWeight.w100)),
-          // Text(detail ?? 'Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w100)),
-          Text(clicked? '____________________________________________________': '________________________', style: TextStyle(color: Color(0xFFF4B5A4))),
-          SizedBox(height:clicked ? 10: 5),
+          Text(
+            clicked
+                ? 'Lorem ipsum dolor sit amet consectetur. Odio neque commodo id\naenean quis magna. Auctor neque id pharetra gravida. Libero \nscelerisque ut mauris volutpat risus nec facilisi adipiscing. \nAugue mollis amet.'
+                : 'Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit',
+            style: TextStyle(fontSize: clicked ? 13 : 12, fontWeight: clicked ? FontWeight.w500 : FontWeight.w100),
+          ),
+          Text(
+            clicked ? '____________________________________________________' : '________________________',
+            style: TextStyle(color: Color(0xFFF4B5A4)),
+          ),
+          SizedBox(height: clicked ? 10 : 5),
           Row(
             children: [
-              Text('\$$cost.00', style: TextStyle(fontSize: clicked ? 16: 12,fontWeight: FontWeight.w500, color: Color(0xFFF4B5A4))),
+              Text(
+                '\$$cost.00',
+                style: TextStyle(fontSize: clicked ? 16 : 12, fontWeight: FontWeight.w500, color: Color(0xFFF4B5A4)),
+              ),
               SizedBox(width: 45),
               Row(
                 children: [
+                  // Wishlist button
                   Container(
                     padding: EdgeInsets.all(2),
                     decoration: BoxDecoration(
                       color: Color(0xFFF4B5A4),
-                      shape: BoxShape.circle
+                      shape: BoxShape.circle,
                     ),
-                    child: 
-                      Icon(Icons.favorite, color: Color(0xFFFFFFFF), size: 18),
-                  ),
-                  SizedBox(width: 14),
-                  GestureDetector(
-                    onTap: (){
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Wishlist(itemName: this.name, imgPath: path)
-                            )
-                          );
-                        },
-                    child: Container(
-                      padding: EdgeInsets.all(2),
-                      decoration: BoxDecoration(
-                        color: Color(0xFFF4B5A4),
-                        shape: BoxShape.circle
-                      ),
-                      child: 
-                        GestureDetector(
-                          child: Icon(Icons.add, color: Color(0xFFFFFFFF), size: 18),
-                          onTap: (){
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => Cart(objectName: name, objectCost: cost, imgPath: path))
-                            );
-                          },
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => Wishlist(itemName: name, imgPath: path),
                           ),
+                        );
+                      },
+                      child: Icon(Icons.favorite, color: Colors.white, size: 18),
                     ),
-                  )
-                ]
+                  ),
+                  SizedBox(width: 8),
+                  // Add to Cart button
+                  Container(
+                    padding: EdgeInsets.all(2),
+                    decoration: BoxDecoration(
+                      color: Color(0xFFF4B5A4),
+                      shape: BoxShape.circle,
+                    ),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Cart(objectName: name, objectCost: cost, imgPath: path),
+                          ),
+                        );
+                      },
+                      child: Icon(Icons.add, color: Colors.white, size: 18),
+                    ),
+                  ),
+                ],
               )
             ],
           )
-        ]
-      )
+        ],
+      ),
     );
   }
 }

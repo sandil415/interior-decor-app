@@ -22,7 +22,7 @@ class ItemMenu extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: (){
-                      Navigator.pop(context);
+                      Navigator.of(context).pop();
                     },
                     child: Icon(Icons.arrow_back),
                   ),

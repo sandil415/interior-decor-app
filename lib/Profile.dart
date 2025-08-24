@@ -15,7 +15,10 @@ class Profile extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: (){
-                    Navigator.pop(context);
+                    if(Navigator.of(context).canPop())
+                      Navigator.pop(context);
+                    else
+                      print("Cannot navigate back");
                   },
                   child: Icon(Icons.arrow_back),
                 ),

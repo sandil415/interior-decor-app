@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'Cart.dart';
+import 'EmptyCart.dart';
+import 'EmptyWishlist.dart';
 import 'HomePage.dart';
 import 'Profile.dart';
 import 'Wishlist.dart';
 
 class BottomNavBar extends StatefulWidget {
-  const BottomNavBar({super.key});
-
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();
 }
@@ -15,35 +15,65 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   int currentIndex = 0;
 
-  void _navigateBottomBar(int index){
-    setState((){
+  final List<GlobalKey<NavigatorState>> _navigatorKeys = [
+    GlobalKey<NavigatorState>(), // Home
+    GlobalKey<NavigatorState>(), // Wishlist
+    GlobalKey<NavigatorState>(), // Cart
+    GlobalKey<NavigatorState>(), // Profile
+  ];
+
+  void _onTap(int index) {
+    setState(() {
       currentIndex = index;
     });
   }
 
-  List <Widget> _pages = [
-    HomePage(),
-    Wishlist(itemName: 'Demo', ),
-    Cart(),
-    Profile()
-  ];
-  
+  // Back button handling
+  Future<bool> _onWillPop() async {
+    final NavigatorState currentNavigator =
+        _navigatorKeys[currentIndex].currentState!;
+    if (currentNavigator.canPop()) {
+      currentNavigator.pop();
+      return false;
+    }
+    return true; 
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: _pages[currentIndex],
-      bottomNavigationBar: NavigationBar(
-      height: 80,
-      elevation: 0,
-      selectedIndex: 0,
-      onDestinationSelected: _navigateBottomBar,
-      destinations: const [
-        NavigationDestination(icon: Icon(Icons.home), label: 'home'),
-        NavigationDestination(icon: Icon(Icons.favorite_border, color: Color(0xFFF4B5A4)), label: 'favorites'),
-        NavigationDestination(icon: Icon(Icons.shopping_cart_outlined, color: Color(0xFFF4B5A4)), label: 'cart'),
-        NavigationDestination(icon: Icon(Icons.person_outline, color: Color(0xFFF4B5A4)), label: 'profile')
-        ],
+    return WillPopScope(
+      onWillPop: _onWillPop,
+      child: Scaffold(
+        body: IndexedStack(
+          index: currentIndex,
+          children: [
+            _buildNavigator(_navigatorKeys[0], HomePage()),
+            _buildNavigator(_navigatorKeys[1], EmptyWishlist()),
+            _buildNavigator(_navigatorKeys[2], EmptyCart()),
+            _buildNavigator(_navigatorKeys[3], Profile()),
+          ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: currentIndex,
+          onTap: _onTap,
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: Colors.orange,
+          unselectedItemColor: Colors.grey,
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+            BottomNavigationBarItem(icon: Icon(Icons.favorite_border), label: 'Wishlist'),
+            BottomNavigationBarItem(icon: Icon(Icons.shopping_cart_outlined), label: 'Cart'),
+            BottomNavigationBarItem(icon: Icon(Icons.person_outline), label: 'Profile'),
+          ],
+        ),
       ),
+    );
+  }
+
+  Widget _buildNavigator(GlobalKey<NavigatorState> key, Widget child) {
+    return Navigator(
+      key: key,
+      onGenerateRoute: (settings) => MaterialPageRoute(builder: (_) => child),
     );
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'Checkout.dart';
 import 'ItemOverview.dart';
+import 'Review.dart';
 import 'TopNavigate.dart';
 
 class ItemClicked extends StatelessWidget {
@@ -56,7 +58,13 @@ class ItemClicked extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('User reviews'),
+                  ElevatedButton(
+                    onPressed: (){
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context)=>Review())
+                      );
+                    },
+                    child: Text('User reviews')),
                   RatingBar.builder(
                   minRating: 1,
                   itemSize: 18,
@@ -70,7 +78,11 @@ class ItemClicked extends StatelessWidget {
               SizedBox(height: 30),
               ElevatedButton(
                 child: Text('Add To Cart', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Color(0xFFCC7861))),
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => Checkout())
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xFFF4B5A4),
                   elevation: 0,

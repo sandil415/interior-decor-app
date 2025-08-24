@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'Checkout.dart';
+
 class Cart extends StatefulWidget {
   final String? objectName;
   final String? imgPath;
@@ -145,7 +147,11 @@ class _CartState extends State<Cart> {
             Center(
               child: ElevatedButton(
                   child: Text('Check Out', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Color(0xFFCC7861))),
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => Checkout())
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xFFF4B5A4),
                     elevation: 0,

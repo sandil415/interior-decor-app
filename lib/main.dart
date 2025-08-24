@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'Cart.dart';
+import 'Checkout.dart';
 import 'EmptyCart.dart';
 import 'ItemClicked.dart';
 import 'OnBoarding.dart';
@@ -36,19 +37,18 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         brightness: Brightness.dark,
       ),
-      // home: const OnBoarding(),
-      home: Review(),
-      // home: const EmptyCart(),
-      // home: const HomePage(),
-      // home: const Search(),
-      // home: const ItemMenu(),
-      // home: const LogIn(),
-      // home: const SignUp(),
-      // home: const ItemClicked(itemName: 'DS', itemCost: 120,),
-      // home: const Cart(objectName: "Demo", objectCost: 120,imgPath: 'lib/assets/images/GreenBed.png',),
-      // home: const EmptyWishlist(),
-      // home: const Profile(),
-      // home: const Wishlist(itemName: 'Demo', imgPath: 'lib/assets/images/GreenBed.png',),
+      
+      initialRoute: '/onboarding',
+
+      routes: {
+        '/onboarding': (context) => const OnBoarding(),
+        '/login': (context) => const LogIn(),
+        '/signup': (context) => const SignUp(),
+        '/home': (context) => const HomePage(),
+        '/profile': (context) => const Profile(),
+        '/search': (context) => const Search(),
+        // '/itemmenu': (context) => const ItemMenu(),
+      },
       debugShowCheckedModeBanner: false,
     );
   }

@@ -101,8 +101,7 @@ class _HomePageState extends State<HomePage> {
                         padding: const EdgeInsets.only(right: 16.0),
                         child: GestureDetector(
                           onTap: (){
-                            Navigator.push(
-                              context,
+                            Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (context) => ItemMenu(name: _carouselLabel[index])
                               )
