@@ -21,7 +21,7 @@ class Review extends StatelessWidget {
                     },
                     child: Icon(Icons.arrow_back),
                   ),
-                  Text('Wishlist', style: TextStyle(fontSize: 18, color: Color(0xFFF4B5A4), fontWeight: FontWeight.bold)),
+                  Text('User Reviews', style: TextStyle(fontSize: 18, color: Color(0xFFF4B5A4), fontWeight: FontWeight.bold)),
                   Text('')
                 ],
               ),
@@ -61,38 +61,46 @@ class ReviewTemp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: CircleAvatar(
-        backgroundImage: AssetImage('lib/assets/images/ProfilePicture.png'),
+    return Container(
+      padding: EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        color: Color(0xFFFAF0E6),
+        borderRadius: BorderRadius.circular(16)
       ),
-      title: Text(
-        'Wade',
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+      child: ListTile(
+        leading: CircleAvatar(
+          backgroundImage: AssetImage('lib/assets/images/ProfilePicture.png'),
+        ),
+        title: Text(
+          'Wade',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+        ),
+        subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start, // ✅ Align left
+          children: [
+            Text(
+              'Lorem ipsum dolor sit amet consectetur. '
+              'Tortor aenean suspendisse pretium nunc non facilisi.',
+              style: TextStyle(fontSize: 12),
+            ),
+            SizedBox(height: 4), 
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Icon(Icons.star, color: Colors.yellow, size: 16),
+                SizedBox(width: 4),
+                Text('5'),
+                SizedBox(width: 12),
+                Icon(Icons.remove_red_eye, size: 16),
+                SizedBox(width: 4),
+                Text('654'),
+              ],
+            ),
+          ],
+        ),
+        isThreeLine: true,
+        // tileColor: Color(0xFFFAF0E6), 
       ),
-      subtitle: Column(
-        crossAxisAlignment: CrossAxisAlignment.start, // ✅ Align left
-        children: [
-          Text(
-            'Lorem ipsum dolor sit amet consectetur. '
-            'Tortor aenean suspendisse pretium nunc non facilisi.',
-            style: TextStyle(fontSize: 12),
-          ),
-          SizedBox(height: 4), 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Icon(Icons.star, color: Colors.yellow, size: 16),
-              SizedBox(width: 4),
-              Text('5'),
-              SizedBox(width: 12),
-              Icon(Icons.remove_red_eye, size: 16),
-              SizedBox(width: 4),
-              Text('654'),
-            ],
-          ),
-        ],
-      ),
-      isThreeLine: true,
     );
   }
 }
