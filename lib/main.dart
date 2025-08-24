@@ -12,6 +12,7 @@ import 'Search.dart';
 import 'ItemMenu.dart';
 import 'EmptyWishlist.dart';
 import 'Wishlist.dart';
+import 'Review.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
       ),
       // home: const OnBoarding(),
+      home: Review(),
       // home: const EmptyCart(),
       // home: const HomePage(),
       // home: const Search(),
@@ -45,7 +47,7 @@ class MyApp extends StatelessWidget {
       // home: const ItemClicked(itemName: 'DS', itemCost: 120,),
       // home: const Cart(objectName: "Demo", objectCost: 120,imgPath: 'lib/assets/images/GreenBed.png',),
       // home: const EmptyWishlist(),
-      home: const Profile(),
+      // home: const Profile(),
       // home: const Wishlist(itemName: 'Demo', imgPath: 'lib/assets/images/GreenBed.png',),
       debugShowCheckedModeBanner: false,
     );
